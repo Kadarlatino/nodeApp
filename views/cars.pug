@@ -1,0 +1,17 @@
+extends layout
+block cont
+
+  table.cars_list
+    each val, index in brands
+      tr
+        td=val
+        td=models[index]
+        td
+          a(href="/cars/del?_remove=DELETE&_id="+ids[index])  Delete
+
+  br
+
+  form(method="post" action="/cars")
+    input(type="text" placeholder="Add brand" name="brand" id="brand")
+    input(type="text" placeholder="Add model" name="model" id="model")
+    input(type="submit")
